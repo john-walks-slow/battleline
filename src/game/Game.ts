@@ -78,12 +78,10 @@ export class Game implements GameData {
     })
   }
   nextPlayer() {
-    if (!this.playing) {
-      this.playing = "p1"
-    } else {
+    if (this.playing) {
       this.playing = getOpponent(this.playing)
+      this.stage = "play"
     }
-    this.stage = "play"
   }
 
   /**
@@ -97,6 +95,8 @@ export class Game implements GameData {
       return new Error("Game End")
     }
     if (this.playing !== move.player) {
+      console.log(this.playing, move.player)
+
       return new Error("Wrong Player")
     }
     if (this.stage !== move.stage) {

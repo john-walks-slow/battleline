@@ -7,8 +7,9 @@ import { rl } from "./utils/read"
 // const rl = readline.createInterface({ input, output });
 
 const server = new Game()
+server.init()
 const client = new Game(server)
-client.init()
+
 async function round() {
   try {
     if (client.winner) {
@@ -127,6 +128,8 @@ async function round() {
 
     if (!(result instanceof Error) && result) {
       client.update(result)
+    } else {
+      throw result
     }
     await round()
     // this.settleLine;
@@ -135,31 +138,3 @@ async function round() {
   }
 }
 round()
-// game.round();
-// console.dir(game, { depth: null });
-// game.playCard("p1", 2, 0);
-// game.playCard("p2", 2, 0);
-// game.playCard("p1", 2, 0);
-// game.playCard("p2", 2, 0);
-// game.playCard("p1", 2, 0);
-// game.playCard("p2", 2, 0);
-// game.settleLine("p2", 2);
-// game.playCard("p1", 4, new Card("blue", 3));
-// game.playCard("p1", 4, new Card("blue", 3));
-// game.playCard("p1", 4, new Card("blue", 3));
-// console.log(JSON.stringify(game.lines[2], undefined, 2));
-
-// let line = new Line(
-//   new CardGroup(
-//     new Card("black", 1),
-//     new Card("black", 2),
-//     new Card("black", 5)
-//   ),
-//   new CardGroup(
-//     new Card("black", 4),
-//     new Card("black", 4),
-//     new Card("black", 4)
-//   )
-// );
-// line.compare();
-// console.log(line);
