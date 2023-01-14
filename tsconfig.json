@@ -13,7 +13,7 @@
     "useDefineForClassFields": true,
     "sourceMap": true,
     "baseUrl": ".",
-    // "types": ["webpack-env"],
+    "types": ["vite/client"],
     "paths": {
       "@/*": ["src/*"]
     },
@@ -24,7 +24,12 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "App.vue.ts",
+    "shims-vue.d.ts",
+    "main.ts",
+    "main.ts",
+    "registerServiceWorker.ts"
   ],
   "exclude": ["node_modules"]
 }
